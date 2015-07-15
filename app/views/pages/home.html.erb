@@ -11,7 +11,16 @@
 <p>Every day we chance upon interesting and useful artefacts in our daily lives that we hope to keep in mind and pull out later for use in the various spheres of our lives. Too often, these little nuggets of gold get lost in the flurry of thoughts and ideas that occupy our minds. The magic satchel is an attempt to put pen to paper (albeit, virtually) so that you have a library of gems to explore over time. 
 </p>
 
-<p><%= link_to "Sign Up", root_path %> / <%= link_to "Sign In", root_path %></p>
+<p>
+        <% if current_user %>
+        Hello there! You're currently logged in.<br /> 
+        <%= link_to "Sign in as a different user?", destroy_user_session_path, method: :delete %>
+
+        <% else %>
+        <%= link_to "Sign in", new_user_session_path %> or
+        <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %>
+</p>
 <p><%= link_to "Projects", projects_path %></p>
   </body>
 </html>
