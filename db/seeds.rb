@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+
+# Create Projects
+
+15.times do
+  Project.create!(
+    name: Faker::Lorem.sentence
+    )
+end
+
+projects = Project.all
+
+
+puts "Seed finished"
+puts "#{Project.count} projects created"

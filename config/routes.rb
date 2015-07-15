@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :projects
+  
   get 'pages/home'
 
   get 'pages/choice'
