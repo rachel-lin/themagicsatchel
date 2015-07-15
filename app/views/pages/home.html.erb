@@ -13,7 +13,7 @@
 
 <p>
         <% if current_user %>
-        Hello there! You're currently logged in.<br /> 
+       Hello there! <%= link_to "Edit your profile?", edit_user_registration_path %><br />
         <%= link_to "Sign in as a different user?", destroy_user_session_path, method: :delete %>
 
         <% else %>
@@ -21,6 +21,5 @@
         <%= link_to "Sign Up", new_user_registration_path %>
         <% end %>
 </p>
-<p><%= link_to "Projects", projects_path %></p>
   </body>
 </html>
