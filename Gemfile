@@ -23,6 +23,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faker'
 
+# User authentication
+gem 'devise'
+gem 'figaro'
+
+  
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,6 +47,7 @@ group :development do
   gem 'sqlite3'
 end
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -51,8 +58,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # User authentication
-  gem 'devise'
-  gem 'figaro'
+
 end
 
