@@ -27,6 +27,9 @@ gem 'faker'
 gem 'devise'
 gem 'figaro'
 
+# Authorization
+gem 'pundit'
+
   
 
 # Use ActiveModel has_secure_password

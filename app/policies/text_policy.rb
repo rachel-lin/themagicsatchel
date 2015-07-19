@@ -1,0 +1,3 @@
+class TextPolicy < ApplicationPolicy
+
+end
