@@ -1,0 +1,26 @@
+<% provide(:title, "Texts") %>
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+<h1>Words</h1>
+
+
+  <% @texts.each do |text| %>
+<ul>
+<li><%= text.title %></li>
+<li><%= text.body %></li>
+<li><%= text.source %></li>
+</ul>
+
+<% end %>
+
+
+<h1>+</h1>
+
+<%= render partial: 'form', locals: { text: @text } %>
+
+
+</body>
+</html>

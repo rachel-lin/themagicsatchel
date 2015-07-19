@@ -1,10 +1,10 @@
-    <%= form_for [project, text] do |f| %>
+    <%= form_for @text do |f| %>
 
-   <% if text.errors.any? %>
+   <% if @text.errors.any? %>
      <div class="alert alert-danger">
-       <h4>There are <%= pluralize(text.errors.count, "error") %>.</h4>
+       <h4>There are <%= pluralize(@text.errors.count, "error") %>.</h4>
        <ul>
-         <% text.errors.full_messages.each do |msg| %>
+         <% @text.errors.full_messages.each do |msg| %>
            <li><%= msg %></li>
          <% end %>
        </ul>
@@ -12,21 +12,21 @@
    <% end %>
 
 
-   <%= form_group_tag(text.errors[:title]) do %>
+   <%= form_group_tag(@text.errors[:title]) do %>
      <%= f.label :title %>
      <%= f.text_field :title, class: 'form-control', placeholder: "Title" %>
    <% end %>
 
 
-   <%= form_group_tag(text.errors[:body]) do %>
+   <%= form_group_tag(@text.errors[:body]) do %>
      <%= f.label :body %>
      <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Thoughts / Quotes" %>
    <% end %>
 
 
-   <%= form_group_tag(text.errors[:author]) do %>
-     <%= f.label :author %>
-     <%= f.text_field:author, class: 'form-control', placeholder: "Source" %>
+   <%= form_group_tag(@text.errors[:author]) do %>
+     <%= f.label :source %>
+     <%= f.text_field :source, class: 'form-control', placeholder: "Source" %>
    <% end %>
 
    

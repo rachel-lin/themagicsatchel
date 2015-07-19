@@ -1,0 +1,23 @@
+ <%= form_for text do |f| %>
+
+
+
+        <p><%= f.label :title %>
+        <%= f.text_field :title,  placeholder: "Title" %></p>
+
+        <p><%= f.label :body %>
+        <%= f.text_area :body, rows: 8, placeholder: "Thoughts / Quote" %></p>
+
+        <p><%= f.label :source %>
+        <%= f.text_field :source,  placeholder: "Source" %></p>
+
+
+
+  <p>
+    <div class="form-group">
+        <%= f.submit "Save" %>
+</div>
+</p>
+
+<% end %>
+    

@@ -1,15 +1,22 @@
 class TextsController < ApplicationController
-  def new
-    @project = Project.find(params[:project_id])
+  
+  def index
+      @texts = Text.paginate(page: params[:page], per_page: 10)
+    authorize @texts
     @text = Text.new
   end
 
+  def new
+    @text = Text.new
+    authorize @text
+  end
+
         def create
-      @project = Project.find(params[:project_id])
       @text = Text.new(text_params)
+        authorize @text
         if @text.save
           flash[:notice] = "Text was saved."
-          redirect_to @project
+          redirect_to texts_path
         else 
           flash[:error] = "There was an error saving your text. Please try again."
           render :new
