@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @project = Project.new
+    @text = Text.new
   end
 
         def create
