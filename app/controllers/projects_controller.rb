@@ -18,6 +18,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @texts = @project.texts.includes(:user).paginate(page: params[:page], per_page: 10)
+
   end
 
   def edit

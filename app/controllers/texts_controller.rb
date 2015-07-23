@@ -12,7 +12,8 @@ class TextsController < ApplicationController
   end
 
         def create
-      @text = Text.new(text_params)
+
+      @text = current_user.texts.build(text_params)
         authorize @text
         if @text.save
           flash[:notice] = "Text was saved."
@@ -29,7 +30,7 @@ class TextsController < ApplicationController
   private
 
   def text_params
-    params.require(:text).permit(:title, :body, :source)
+    params.require(:text).permit(:title, :body, :source, :project_id)
   end
 
 end

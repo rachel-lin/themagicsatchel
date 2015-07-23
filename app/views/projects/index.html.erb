@@ -6,13 +6,14 @@
   <body>
 <h1>Projects</h1>
 
-<ul>
+
   <% @projects.each do |project| %>
 
-<li><%= link_to project.name, project %></li>
+<p><%= link_to project.name, project %><br />
+<small><%= project.created_at %></small></p>
 
 <% end %>
-</ul>
+
 
 
 <h1>+</h1>

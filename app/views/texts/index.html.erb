@@ -8,11 +8,12 @@
 
 
   <% @texts.each do |text| %>
-<ul>
-<li><%= text.title %></li>
-<li><%= text.body %></li>
-<li><%= text.source %></li>
-</ul>
+
+<h2><%= text.title %></h2>
+<p>"<%= text.body %>"</p>
+<small>
+Source: <%= text.source %><br />
+Project: <%= text.project.name %></small>
 
 <% end %>
 
