@@ -14,14 +14,12 @@
  *= require_self
  */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300);
-@import url(http://yui.yahooapis.com/pure/0.6.0/pure-min.css);
+//= require normalize
+//= require skeleton
 
-* {
+@import url(http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic);
 
-  font-family: 'Lato', serif;
 
-  }
 
   a, a:active, a:visited, a:hover {
 

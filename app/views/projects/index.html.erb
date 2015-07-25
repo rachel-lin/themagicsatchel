@@ -1,26 +1,34 @@
 <% provide(:title, "Projects") %>
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-<h1>Projects</h1>
 
+<div class="row">
 
-  <% @projects.each do |project| %>
+<table class="u-full-width">
 
-<p><%= link_to project.name, project %><br />
-<small><%= project.created_at %></small></p>
+  <thead>
+    <tr>
+      <th>PROJECT TITLE</th>
+      <th>DATE CREATED</th>
+      <th>STATUS</th>
+    </tr>
+  </thead>
 
+  <tbody>
+<% @projects.each do |project| %>
+    <tr>
+      <td><%= link_to project.name, project %></td>
+      <td><%= project.created_at.strftime("%d %b %Y") %></td>
+      <td>project status</td>
+    </tr>
 <% end %>
+  </tbody>
+</table>
 
 
+</div>
 
-<h1>+</h1>
 
 <%= render partial: 'form', locals: { project: @project } %>
 
+
 <%= render partial: 'texts/form', locals: { text: @text } %>
 
-</body>
-</html>

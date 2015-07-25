@@ -1,21 +1,22 @@
- <%= form_for project do |f| %>
-
-
-
+<div class="row">
+<h5>New Project</h5>
+  <%= form_for project do |f| %>
 
 
         <%= f.label :name %>
-        <%= f.text_field :name,  placeholder: "Enter Project Title" %>
+        <%= f.text_field :name, class: 'u-full-width', placeholder: "Enter Project Title" %>
 
 
         <%= f.label :public, class: 'checkbox' do %>
-        <%= f.check_box :public %> Public Topic 
+        <%= f.check_box :public %><span class="label-body"> Public Topic </span>
 
   <% end %>
 
-  <div class="form-group">
         <%= f.submit "Save" %>
-</div>
+
 
 <% end %>
+</div>
+
+
     

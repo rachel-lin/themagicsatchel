@@ -1,19 +1,18 @@
- <%= form_for text do |f| %>
+ <div class="row">
+<h5>New Text</h5>
 
-
+<%= form_for text do |f| %>
 
         <p><%= f.label :title %>
-        <%= f.text_field :title,  placeholder: "Title" %></p>
+        <%= f.text_field :title,  placeholder: "Title" , class: 'u-full-width'%></p>
 
         <p><%= f.label :body %>
-        <%= f.text_area :body, rows: 8, placeholder: "Thoughts / Quote" %></p>
+        <%= f.text_area :body, rows: 8, placeholder: "Thoughts / Quote" , class: 'u-full-width'%></p>
 
         <p><%= f.label :source %>
-        <%= f.text_field :source,  placeholder: "Source" %></p>
+        <%= f.text_field :source,  placeholder: "Author / Book / Yourself" , class: 'u-full-width'%></p>
 
-        <p><%= f.collection_select(:project_id, Project.all, :id, :name) %></p>
-
-
+        <p>Project it belongs to <%= f.collection_select(:project_id, Project.all, :id, :name) %></p>
 
   <p>
     <div class="form-group">
@@ -22,4 +21,5 @@
 </p>
 
 <% end %>
+</div>
     
