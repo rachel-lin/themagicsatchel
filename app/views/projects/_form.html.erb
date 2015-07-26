@@ -9,8 +9,12 @@
 
         <%= f.label :public, class: 'checkbox' do %>
         <%= f.check_box :public %><span class="label-body"> Public Topic </span>
+        <% end %>
 
-  <% end %>
+        <%= f.label :status %>
+        <%= select_tag(:status, options_for_select([['Ideation', 1], ['Research', 2], ['Prototyping', 3], ['Completed', 4]], 4)) %>
+
+
 
         <%= f.submit "Save" %>
 

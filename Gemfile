@@ -22,10 +22,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faker'
-
+gem 'carrierwave'
+gem 'mini_magick'
 # User authentication
 gem 'devise'
 gem 'figaro'
+gem 'fog'
 
 # Authorization
 gem 'pundit'

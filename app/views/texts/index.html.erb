@@ -1,9 +1,5 @@
 <% provide(:title, "Texts") %>
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
+
 <h1>Words</h1>
 
 
@@ -16,6 +12,7 @@ Source: <%= text.source %><br />
 Project: <%= text.project.name %></small>
 
 <% end %>
+<%= will_paginate @texts %>
 
 
 <h1>+</h1>
@@ -23,5 +20,3 @@ Project: <%= text.project.name %></small>
 <%= render partial: 'form', locals: { text: @text } %>
 
 
-</body>
-</html>

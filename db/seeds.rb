@@ -35,10 +35,13 @@ admin.save!
 
 # Create Projects
 
+status = ['Ideation', 'Research', 'Prototyping', 'Completed']
+
 15.times do
   Project.create!(
     user: users.sample,
-    name: Faker::Lorem.sentence
+    name: Faker::Lorem.sentence,
+    status: status.sample
     )
 end
 

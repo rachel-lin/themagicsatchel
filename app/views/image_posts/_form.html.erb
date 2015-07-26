@@ -1,0 +1,29 @@
+ <div class="row">
+<h5>New Visual</h5>
+
+<%= form_for image_post do |f| %>
+
+        <% if image_post.image? %>
+           <p>Image that is currently uploaded</p>
+           <%= image_tag( image_post.image.normal.url ) %>
+       <% end %>
+       
+         <p><%= f.label :image %>
+         <%= f.file_field :image %>
+         <%= f.hidden_field :image_cache %></p>
+
+       <p><%= f.label :caption %>
+        <%= f.text_field :caption,  placeholder: "Insert Caption" , class: 'u-full-width'%></p>
+
+
+        <p>Project it belongs to <%= f.collection_select(:project_id, Project.all, :id, :name) %></p>
+
+  <p>
+    <div class="form-group">
+        <%= f.submit "Save" %>
+</div>
+</p>
+
+<% end %>
+</div>
+    

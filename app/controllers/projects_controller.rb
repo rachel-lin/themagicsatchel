@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.paginate(page: params[:page], per_page: 10)
     @project = Project.new
     @text = Text.new
+    @image_post = ImagePost.new
   end
 
         def create
@@ -29,5 +30,5 @@ end
   private
 
   def project_params
-    params.require(:project).permit(:name, :public)
+    params.require(:project).permit(:name, :public, :status)
   end

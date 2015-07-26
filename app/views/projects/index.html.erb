@@ -17,11 +17,13 @@
     <tr>
       <td><%= link_to project.name, project %></td>
       <td><%= project.created_at.strftime("%d %b %Y") %></td>
-      <td>project status</td>
+      <td><%= project.status %></td>
     </tr>
 <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @projects %>
 
 
 </div>
@@ -31,4 +33,6 @@
 
 
 <%= render partial: 'texts/form', locals: { text: @text } %>
+
+<%= render partial: 'image_posts/form', locals: { image_post: @image_post } %>
 

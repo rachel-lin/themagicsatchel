@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :projects
   resources :texts
+  resources :image_posts
   
   get 'pages/home'
 
