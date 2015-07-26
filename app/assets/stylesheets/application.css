@@ -16,6 +16,8 @@
 
 //= require normalize
 //= require skeleton
+//= require tabs
+//= require tabstyles
 
 @import url(http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic);
 
@@ -29,6 +31,8 @@
 
   }
 
-  .full {
-    height: 50%;
-  }
+.signin {
+  padding: 2%;
+  border: 1px dashed #eee;
+  margin-bottom: 3%;
+}

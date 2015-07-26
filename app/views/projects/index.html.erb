@@ -1,38 +1,86 @@
 <% provide(:title, "Projects") %>
 
-<div class="row">
 
-<table class="u-full-width">
+<section>
+        <div class="tabs tabs-style-line">
+          <nav>
+            <ul>
+              <li><a href="#section-line-1"><span>About</span></a></li>
+              <li><a href="#section-line-2"><span>Projects</span></a></li>
+              <li><a href="#section-line-3"><span>Add To Satchel</span></a></li>
+            </ul>
+          </nav>
 
-  <thead>
-    <tr>
-      <th>PROJECT TITLE</th>
-      <th>DATE CREATED</th>
-      <th>STATUS</th>
-    </tr>
-  </thead>
+          <div class="content-wrap">
 
-  <tbody>
-<% @projects.each do |project| %>
-    <tr>
-      <td><%= link_to project.name, project %></td>
-      <td><%= project.created_at.strftime("%d %b %Y") %></td>
-      <td><%= project.status %></td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+            <section id="section-line-1">
+             <p><h2> “You can't wait for inspiration. You have to go after it with a club.” — Jack London</h2>
 
-<%= will_paginate @projects %>
+            Every day we chance upon interesting and useful artefacts in our daily lives that we hope to keep in mind and pull out later for use in the various spheres of our lives. Too often, these little nuggets of gold get lost in the flurry of thoughts and ideas that occupy our minds. The magic satchel is an attempt to put pen to paper (albeit, virtually) so that you have a library of gems to explore over time.
+            </p>
+            </section>
 
 
-</div>
+            <section id="section-line-2">
 
 
-<%= render partial: 'form', locals: { project: @project } %>
+                  <table class="u-full-width">
+
+                    <thead>
+                      <tr>
+                        <th>PROJECT TITLE</th>
+                        <th>DATE CREATED</th>
+                        <th>STATUS</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                  <% @projects.each do |project| %>
+                      <tr>
+                        <td><%= link_to project.name, project %></td>
+                        <td><%= project.created_at.strftime("%d %b %Y") %></td>
+                        <td><%= project.status %></td>
+                      </tr>
+                  <% end %>
+                    </tbody>
+                  </table>
+
+                  <%= will_paginate @projects %>
 
 
-<%= render partial: 'texts/form', locals: { text: @text } %>
 
-<%= render partial: 'image_posts/form', locals: { image_post: @image_post } %>
 
+</section>
+
+
+            <section id="section-line-3">
+
+            <%= render partial: 'form', locals: { project: @project } %>
+
+
+            <%= render partial: 'texts/form', locals: { text: @text } %>
+
+            <%= render partial: 'image_posts/form', locals: { image_post: @image_post } %>
+
+          </section>
+
+          </div><!-- /content -->
+        </div><!-- /tabs -->
+      </section>
+
+
+
+
+
+
+
+
+<script>
+      (function() {
+
+        [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+          new CBPFWTabs( el );
+        });
+
+      })();
+  </script>
