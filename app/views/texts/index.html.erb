@@ -1,9 +1,9 @@
 <% provide(:title, "Texts") %>
 
 <h1>Words</h1>
+<div class="row centre">
 
-
-  <% @texts.each do |text| %>
+<% @texts.each do |text| %>
 
 <h2><%= text.title %></h2>
 <p>"<%= text.body %>"</p>
@@ -12,11 +12,13 @@ Source: <%= text.source %><br />
 Project: <%= text.project.name %></small>
 
 <% end %>
-<%= will_paginate @texts %>
 
 
-<h1>+</h1>
+</div>
+
+<div class="row">
+<h1>New</h1>
 
 <%= render partial: 'form', locals: { text: @text } %>
-
+</div>
 

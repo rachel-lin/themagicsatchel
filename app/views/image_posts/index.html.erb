@@ -1,21 +1,22 @@
 <% provide(:title, "Visuals") %>
 
 <h1>Visuals</h1>
-
+<div class="row">
 
   <% @image_posts.each do |image_post| %>
-
+<div class="twelve columns centre">
 <%= image_tag(image_post.image.normal.url) if image_post.image? %>
-<h2><%= image_post.caption %></h2>
-
-<small>
-Project: <%= image_post.project.name %></small>
+<p>
+Caption: <%= image_post.caption %><br />
+Project: <%= image_post.project.name %>
+</p>
+</div>
 
 <% end %>
 
-
+</div>
+<div class="row">
 <h1>New</h1>
 
 <%= render partial: 'form', locals: { image_post: @image_post } %>
-
-
+</div>

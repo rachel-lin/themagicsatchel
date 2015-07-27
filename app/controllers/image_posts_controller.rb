@@ -13,7 +13,7 @@ class ImagePostsController < ApplicationController
 
         def create
 
-      @image_post = current_user.imageposts.build(image_post_params)
+      @image_post = current_user.image_posts.build(image_post_params)
         authorize @image_post
         if @image_post.save
           flash[:notice] = "Visual was saved."
