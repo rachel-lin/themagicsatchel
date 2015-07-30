@@ -24,8 +24,35 @@ class ImagePostsController < ApplicationController
         end
       end
 
-  def edit
+   def edit
+        @image_post = ImagePost.find(params[:id])
+        authorize @image_post
   end
+
+  def update
+      @image_post = ImagePost.find(params[:id])
+        authorize @image_post
+      if @image_post.update_attributes(image_post_params)
+        flash[:notice] = "Visual was updated."
+        redirect_to image_posts_path
+      else 
+        flash[:error] = "There was an error saving your changes. Please try again."
+        render :edit
+      end
+    end
+
+  def destroy
+     @image_post = ImagePost.find(params[:id])
+ 
+     authorize @image_post
+     if @image_post.destroy
+       flash[:notice] = "The visual was deleted successfully."
+       redirect_to image_posts_path
+     else
+       flash[:error] = "There was an error deleting the visual."
+       render :show
+     end
+   end
 
   private
 

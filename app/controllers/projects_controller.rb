@@ -20,11 +20,43 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @texts = @project.texts.includes(:user).paginate(page: params[:page], per_page: 10)
+    @image_posts = @project.image_posts.includes(:user).paginate(page: params[:page], per_page: 10)
 
   end
 
   def edit
+        @project = Project.find(params[:id])
+        authorize @project
   end
+
+    def update
+      @project = Project.find(params[:id])
+        authorize @project
+      if @project.update_attributes(project_params)
+        flash[:notice] = "Project details were updated."
+        redirect_to projects_path
+      else 
+        flash[:error] = "There was an error saving your changes. Please try again."
+        render :edit
+      end
+    end
+
+  def destroy
+     @project = Project.find(params[:id])
+ 
+     authorize @project
+     if @project.destroy
+       flash[:notice] = "\"#{@project.name}\" was deleted successfully."
+       redirect_to projects_path
+     else
+       flash[:error] = "There was an error deleting the project."
+       render :show
+     end
+   end
+
+
+
+
 end
 
   private

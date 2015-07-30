@@ -10,6 +10,14 @@
 Caption: <%= image_post.caption %><br />
 Project: <%= image_post.project.name %>
 </p>
+ <p> 
+  <% if policy(@image_post).update? %>
+   <%= link_to "Edit Visual", edit_image_post_path(image_post.id), class: 'btn btn-success' %>
+ <% end %> — 
+
+ <% if policy(@image_post).destroy? %>
+ <%= link_to "Delete Visual", @image_post, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this visual?' } %> 
+ <% end %></p>
 </div>
 
 <% end %>

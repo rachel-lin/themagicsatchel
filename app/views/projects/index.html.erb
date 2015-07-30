@@ -55,11 +55,13 @@
 
             <section id="section-line-3">
 
+            <h5>New Project</h5>
             <%= render partial: 'form', locals: { project: @project } %>
 
-
+            <h5>New Text</h5>
             <%= render partial: 'texts/form', locals: { text: @text } %>
 
+            <h5>New Visual</h5>
             <%= render partial: 'image_posts/form', locals: { image_post: @image_post } %>
 
           </section>

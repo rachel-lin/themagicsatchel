@@ -25,7 +25,34 @@ class TextsController < ApplicationController
       end
 
   def edit
+        @text = Text.find(params[:id])
+        authorize @text
   end
+
+  def update
+      @text = Text.find(params[:id])
+        authorize @text
+      if @text.update_attributes(text_params)
+        flash[:notice] = "Text was updated."
+        redirect_to texts_path
+      else 
+        flash[:error] = "There was an error saving your changes. Please try again."
+        render :edit
+      end
+    end
+
+  def destroy
+     @text = Text.find(params[:id])
+ 
+     authorize @text
+     if @text.destroy
+       flash[:notice] = "\"#{@text.title}\" was deleted successfully."
+       redirect_to texts_path
+     else
+       flash[:error] = "There was an error deleting the text."
+       render :show
+     end
+   end
 
   private
 

@@ -4,5 +4,17 @@
 <p>"<%= text.body %>"</p>
 <small>
 Source: <%= text.source %><br />
-Project: <%= text.project.name %></small>
+Project: <%= text.project.name %>
+ <p> 
+
+     <% if policy(text).update? %>
+     <%= link_to "Edit Text", edit_text_path(text.id), class: 'btn btn-success' %>
+     <% end %>
+ — 
+
+
+   <% if policy(text).destroy? %>
+   <%= link_to "Delete Text", text_path(text.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this text?' } %> 
+   <% end %>
+</p></small>
 </div>

@@ -5,4 +5,5 @@ class TextPolicy < ApplicationPolicy
   end
 
 
+
 end
