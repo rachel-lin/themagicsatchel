@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'youtube_it', '~> 2.4.0'
 # User authentication
 gem 'devise'
 gem 'figaro'

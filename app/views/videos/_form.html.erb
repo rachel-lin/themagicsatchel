@@ -1,0 +1,28 @@
+ <div class="row">
+
+<% if video.errors.any? %>
+The following errors were found while submitting the form:
+      <ul>
+        <% video.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+<% end %>
+
+
+<%= form_for video do |f| %>
+
+        <p><%= f.label :link %>
+        <%= f.text_field :link,  placeholder: "Link to Youtube Video" , class: 'u-full-width'%></p>
+
+        <p>Project it belongs to <%= f.collection_select(:project_id, Project.all, :id, :name) %></p>
+
+  <p>
+    <div class="form-group">
+        <%= f.submit "Save" %>
+</div>
+</p>
+
+<% end %>
+</div>
+    

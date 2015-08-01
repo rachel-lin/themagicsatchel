@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :texts
   resources :image_posts
+  resources :videos, only: [:index, :new, :create, :destroy]
   
   get 'pages/home'
 

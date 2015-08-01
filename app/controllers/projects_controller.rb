@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @text = Text.new
     @image_post = ImagePost.new
+    @video = Video.new
+    authorize @projects
   end
 
         def create
@@ -19,8 +21,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    authorize @project
     @texts = @project.texts.includes(:user).paginate(page: params[:page], per_page: 10)
     @image_posts = @project.image_posts.includes(:user).paginate(page: params[:page], per_page: 10)
+
 
   end
 
