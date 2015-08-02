@@ -1,7 +1,8 @@
 class VideosController < ApplicationController
-  
+
   def index
     @videos = Video.order('created_at DESC')
+    @video = Video.new
   end
 
   def new
@@ -11,7 +12,7 @@ class VideosController < ApplicationController
       @video = Video.new(video_params)
       if @video.save
         flash[:success] = 'Video added!'
-        redirect_ to videos_path
+        redirect_to videos_path
       else
         render :new
       end
@@ -29,7 +30,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:title, :duration, :link, :project_id)
+    params.require(:video).permit(:link,:duration, :title, :project_id, :thoughts)
   end
 
 end

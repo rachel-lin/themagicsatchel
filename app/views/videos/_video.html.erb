@@ -1,23 +1,31 @@
 
 <div class="four columns">
-<div id="player-wrapper"></div>
-<h2><%= video.title %><%= video.duration %></h2>
 
-<p><%= image_tag "https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
-                              class: 'yt_preview img-rounded', :"data-uid" => video.uid %>
+
+<%= form_for video do |f| %>
+
+<% if video.errors.any? %>
+The following errors were found while submitting the form:
+      <ul>
+        <% video.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+<% end %>
+
+        <p><%= f.label :link %>
+        <%= f.text_field :link,  placeholder: "Link to Youtube Video" , class: 'u-full-width'%></p>
+
+        <p><%= f.label :thoughts %>
+        <%= f.text_area :thoughts,  placeholder: "Thoughts" , class: 'u-full-width'%></p>
+
+        <p>Project it belongs to <%= f.collection_select(:project_id, Project.all, :id, :name) %></p>
+
+  <p>
+    <div class="form-group">
+        <%= f.submit "Save" %>
+</div>
 </p>
-<small>
-Project: <%= video.project.name %>
- <p> 
 
-     <% if policy(video).update? %>
-     <%= link_to "Edit Video", edit_text_path(text.id), class: 'btn btn-success' %>
-     <% end %>
-
-
-
-   <% if policy(text).destroy? %>
-   <%= link_to "Delete Text", text_path(text.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this text?' } %> 
-   <% end %>
-</p></small>
+<% end %>
 </div>

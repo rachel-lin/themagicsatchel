@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.paginate(page: params[:page], per_page: 10)
+    @projects = Project.all
     @project = Project.new
     @text = Text.new
     @image_post = ImagePost.new
@@ -22,8 +22,9 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     authorize @project
-    @texts = @project.texts.includes(:user).paginate(page: params[:page], per_page: 10)
-    @image_posts = @project.image_posts.includes(:user).paginate(page: params[:page], per_page: 10)
+    @texts = @project.texts.includes(:user)
+    @image_posts = @project.image_posts.includes(:user)
+
 
 
   end

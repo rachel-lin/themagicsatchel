@@ -1,5 +1,6 @@
-<div class="twelve columns centre">
-<%= image_tag(image_post.image.normal.url) if image_post.image? %>
+<div class="twelve columns centre image">
+<span class="typcn typcn-camera"></span><br />
+<br /><%= image_tag(image_post.image.normal.url) if image_post.image? %>
 <p>
 Caption: <%= image_post.caption %><br />
 Project: <%= image_post.project.name %>

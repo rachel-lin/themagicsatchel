@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801193112) do
+ActiveRecord::Schema.define(version: 20150802184427) do
 
   create_table "image_posts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150801193112) do
     t.integer  "user_id"
     t.integer  "project_id"
     t.string   "uid"
+    t.string   "thoughts"
   end
 
   add_index "videos", ["project_id"], name: "index_videos_on_project_id"

@@ -17,3 +17,5 @@
 
 //= require modernizr.custom
 //= require cbpFWTabs
+//= require yt_player
+//= require jquery.bind_with_delay

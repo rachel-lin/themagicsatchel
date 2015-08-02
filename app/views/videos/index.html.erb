@@ -1,2 +1,43 @@
-<h1>Videos#index</h1>
-<p>Find me in app/views/videos/index.html.erb</p>
+<% provide(:title, "Videos") %>
+
+<h1>Videos / Music</h1>
+<div class="row">
+<div id="player-wrapper"></div>
+
+<% @videos.each do |video| %>
+
+
+
+<p><%= image_tag "https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+                              class: 'yt_preview img-rounded', :"data-uid" => video.uid %>
+</p>
+<small>
+Title: <%= video.title %><br />
+Duration: <%= video.duration %><br />
+Project: <%= video.project.name %><br />
+Thoughts: <%= video.thoughts %>
+ <p> 
+
+     <% if policy(video).update? %>
+     <%= link_to "Edit", edit_video_path(video.id), class: 'btn btn-success' %>
+     <% end %>
+
+/
+
+   <% if policy(video).destroy? %>
+   <%= link_to "Delete", video_path(video.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this video?' } %> 
+   <% end %>
+</p></small>
+
+<% end %>
+
+
+</div>
+
+<div class="row">
+<h1>New</h1>
+
+<%= render partial: 'form', locals: { video: @video } %>
+</div>
+
+

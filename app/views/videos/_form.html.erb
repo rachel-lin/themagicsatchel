@@ -1,4 +1,8 @@
- <div class="row">
+ <div class="row form">
+
+
+
+<%= form_for video do |f| %>
 
 <% if video.errors.any? %>
 The following errors were found while submitting the form:
@@ -9,11 +13,11 @@ The following errors were found while submitting the form:
       </ul>
 <% end %>
 
-
-<%= form_for video do |f| %>
-
         <p><%= f.label :link %>
         <%= f.text_field :link,  placeholder: "Link to Youtube Video" , class: 'u-full-width'%></p>
+
+        <p><%= f.label :thoughts %>
+        <%= f.text_area :thoughts,  placeholder: "Thoughts" , class: 'u-full-width'%></p>
 
         <p>Project it belongs to <%= f.collection_select(:project_id, Project.all, :id, :name) %></p>
 
