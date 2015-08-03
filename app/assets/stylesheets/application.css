@@ -71,3 +71,10 @@
   background-color:#eee;
 }
 
+.flash {
+  display:inline-block;
+}
+
+.x-button {
+  border: none;
+}

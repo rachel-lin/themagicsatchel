@@ -15,13 +15,37 @@
 <div class="row signin">
   <div class="u-pull-left">
        <% if current_user %>
-       Hello there! <%= link_to "Edit profile /", edit_user_registration_path %> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-
-        <% else %>
+       <%= link_to  edit_user_registration_path do %>
+   <span class="typcn typcn-user-outline"></span>
+   <% end %>
+       <%= link_to  destroy_user_session_path, method: :delete do %>
+   <span class="typcn typcn-times-outline"></span>
+   <% end %>
+<% else %>
         <%= link_to "Sign in", new_user_session_path %> or
         <%= link_to "Sign Up", new_user_registration_path %>
         <% end %>
+
+<div class="flash">
+    <% if flash[:notice] %>
+      
+     <div class="alert flash" data-dismiss="alert"> — <%= flash[:notice] %></div>
+        
+    <% elsif flash[:error] %> 
+
+    <div class="alert flash" data-dismiss="alert"> — <%= flash[:error] %></div>
+
+    <% elsif flash[:alert] %>
+
+    <div class="alert flash" data-dismiss="alert"> — <%= flash[:alert] %></div>
+
+    <% end %>
 </div>
+
+</div>
+
+
+
    <div class="u-pull-right">
     <%= link_to  root_path do %>
    <span class="typcn typcn-home-outline"></span>
@@ -54,25 +78,7 @@
 <div class="row">
   <%= yield %>
 </div>
-<div class="row">
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <button type ="button" class="close" data-dismiss="alert">&times;</button>
-        <%= flash[:notice] %>
-      </div> 
-    <% elsif flash[:error] %> 
-      <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss ="alert">&times;</button>
-        <%= flash[:error] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss= "alert">&times;</button>
-        <%= flash[:alert] %>
-      </div>
 
-    <% end %>
-</div>
 
 </div>
 </body>
