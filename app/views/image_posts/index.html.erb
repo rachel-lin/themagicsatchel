@@ -4,20 +4,24 @@
 <div class="row">
 
   <% @image_posts.each do |image_post| %>
-<div class="twelve columns centre">
-<%= image_tag(image_post.image.normal.url) if image_post.image? %>
+<div class="u-full-width centre image-border">
+<span class="typcn typcn-camera"></span><br />
+<br /><%= image_tag(image_post.image.normal.url) if image_post.image? %>
 <p>
 Caption: <%= image_post.caption %><br />
 Project: <%= image_post.project.name %>
 </p>
  <p> 
-  <% if policy(@image_post).update? %>
+  <% if policy(image_post).update? %>
    <%= link_to "Edit Visual", edit_image_post_path(image_post.id), class: 'btn btn-success' %>
- <% end %> — 
+   <% end %>
+ — 
 
- <% if policy(@image_post).destroy? %>
- <%= link_to "Delete Visual", @image_post, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this visual?' } %> 
- <% end %></p>
+
+   <% if policy(image_post).destroy? %>
+   <%= link_to "Delete Visual", @image_post, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this visual?' } %> 
+   <% end %>
+</p>
 </div>
 
 <% end %>

@@ -1,8 +1,6 @@
-<%= button_to 'Back', root_path, :method => :get %>
-
-<h1><%= @project.name %></h1>
-<h3>Created on &middot; <%= @project.created_at.strftime("%d %b %Y") %> | 
-Project status &middot; <%= @project.status %></h3>
+<h2 class="project-title"><%= @project.name %></h2>
+<h4>Created on &middot; <%= @project.created_at.strftime("%d %b %Y") %> <span class="typcn typcn-minus-outline"></span>
+Project status &middot; <%= @project.status %></h4>
 <h4>
   <% if policy(@project).update? %>
    <%= link_to  edit_project_path do %>
@@ -19,5 +17,6 @@ Project status &middot; <%= @project.status %></h3>
 <div class="row">
   <%= render @texts %>
   <%= render @image_posts %>
+  <%= render @videos %>
 
 </div>

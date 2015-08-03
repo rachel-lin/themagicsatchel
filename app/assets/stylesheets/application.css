@@ -52,11 +52,22 @@
   border-top: 8px solid #FF9999;
 }
 
-.image {
+.image-border {
   border-top: 8px solid #CCCCFF;
+}
+
+.video-border {
+  border-top: 8px solid #CCE6FF;
+}
+
+.project-border {
+  border-top: 8px solid #ADFFD6;
 }
 
 .form {
   margin-top: 3%;
   margin-bottom: 3%;
+  padding: 5%;
+  background-color:#eee;
 }
+

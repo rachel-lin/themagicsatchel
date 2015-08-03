@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'pages/filter'
 
+    get 'pages/about'
+
   root 'projects#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

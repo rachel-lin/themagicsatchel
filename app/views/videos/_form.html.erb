@@ -1,6 +1,6 @@
- <div class="row form">
+ <div class="row form video-border">
 
-
+<h5><span class="typcn typcn-video-outline"></span> New Video / Music Link</h5>
 
 <%= form_for video do |f| %>
 
@@ -14,7 +14,7 @@ The following errors were found while submitting the form:
 <% end %>
 
         <p><%= f.label :link %>
-        <%= f.text_field :link,  placeholder: "Link to Youtube Video" , class: 'u-full-width'%></p>
+        <%= f.text_field :link,  placeholder: "Insert Youtube / Souncloud / Website link" , class: 'u-full-width'%></p>
 
         <p><%= f.label :thoughts %>
         <%= f.text_area :thoughts,  placeholder: "Thoughts" , class: 'u-full-width'%></p>

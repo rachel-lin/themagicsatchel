@@ -13,13 +13,41 @@
 <div class="container">
 
 <div class="row signin">
-        <% if current_user %>
-       Hello there! <%= link_to "Edit profile /", edit_user_registration_path %> <%= link_to "Sign in as a different user", destroy_user_session_path, method: :delete %>
+  <div class="u-pull-left">
+       <% if current_user %>
+       Hello there! <%= link_to "Edit profile /", edit_user_registration_path %> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 
         <% else %>
         <%= link_to "Sign in", new_user_session_path %> or
         <%= link_to "Sign Up", new_user_registration_path %>
         <% end %>
+</div>
+   <div class="u-pull-right">
+    <%= link_to  root_path do %>
+   <span class="typcn typcn-home-outline"></span>
+   <% end %>
+
+   <%= link_to  pages_about_path do %>
+   <span class="typcn typcn-info-outline"></span>
+   <% end %>
+
+   <% if current_user %>
+
+   <%= link_to texts_path do %>
+   <span class="typcn typcn-pencil"></span>
+   <% end %>
+
+    <%= link_to image_posts_path do %>
+   <span class="typcn typcn-camera"></span>
+   <% end %>
+
+    <%= link_to videos_path do %>
+   <span class="typcn typcn-video-outline"></span>
+   <% end %>
+
+   <% end %>
+ </div>
+
 </div>
 
     

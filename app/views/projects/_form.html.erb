@@ -1,13 +1,13 @@
-<div class="row form">
+<div class="row form project-border">
   <%= form_for project do |f| %>
-
+<h5><span class="typcn typcn-plus-outline"></span> New Project</h5>
 
         <%= f.label :name %>
         <%= f.text_field :name, class: 'u-full-width', placeholder: "Enter Project Title" %>
 
 
         <%= f.label :public, class: 'checkbox' do %>
-        <%= f.check_box :public %><span class="label-body"> Public Topic </span>
+        <%= f.check_box :public %><span class="label-body"> Public Project </span>
         <% end %>
 
         <%= f.label :status %>

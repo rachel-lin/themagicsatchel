@@ -35,6 +35,10 @@ gem 'pundit'
 
 # Pagination
 gem 'will_paginate', '~> 3.0.5'
+
+# Links
+
+gem 'auto_html'
   
 
 # Use ActiveModel has_secure_password

@@ -5,23 +5,14 @@
         <div class="tabs tabs-style-line">
           <nav>
             <ul>
-              <li><a href="#section-line-1"><span>About</span></a></li>
-              <li><a href="#section-line-2"><span>Projects</span></a></li>
-              <li><a href="#section-line-3"><span>Add To Satchel</span></a></li>
+              <li><a href="#section-line-1"><span>Projects</span></a></li>
+              <li><a href="#section-line-2"><span>Add To Satchel</span></a></li>
             </ul>
           </nav>
 
           <div class="content-wrap">
 
             <section id="section-line-1">
-             <p><h2> “You can't wait for inspiration. You have to go after it with a club.” — Jack London</h2>
-
-            Every day we chance upon interesting and useful artefacts in our daily lives that we hope to keep in mind and pull out later for use in the various spheres of our lives. Too often, these little nuggets of gold get lost in the flurry of thoughts and ideas that occupy our minds. The magic satchel is an attempt to put pen to paper (albeit, virtually) so that you have a library of gems to explore over time.
-            </p>
-            </section>
-
-
-            <section id="section-line-2">
 
 
                   <table class="u-full-width">
@@ -38,7 +29,7 @@
                   <% @projects.each do |project| %>
                       <tr>
                         <td><%= link_to project.name, project %></td>
-                        <td><%= project.created_at.strftime("%d %b %Y") %></td>
+                        <td><%= project.created_at.strftime("%d.%m.%Y") %></td>
                         <td><%= project.status %></td>
                       </tr>
                   <% end %>
@@ -53,20 +44,22 @@
 </section>
 
        
-            <section id="section-line-3">
+
+
+             <section id="section-line-2">
             <br />
-            <h5><span class="typcn typcn-plus-outline"></span> New Project</h5>
+<% if policy(@project).create? %>
+            
             <%= render partial: 'form', locals: { project: @project } %>
 
-            <h5><span class="typcn typcn-pencil"></span> New Text</h5>
             <%= render partial: 'texts/form', locals: { text: @text } %>
 
-            <h5><span class="typcn typcn-camera"></span> New Visual</h5>
             <%= render partial: 'image_posts/form', locals: { image_post: @image_post } %>
 
-            <h5><span class="typcn typcn-social-youtube"></span> New Video</h5>
             <%= render partial: 'videos/form', locals: { video: @video } %>
-
+<% else %>
+  <p>Please Sign Up / Sign In to put together your own magic satchel.</p>
+<% end %>
           </section>
 
 

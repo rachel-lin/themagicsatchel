@@ -5,8 +5,9 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
-def show?
-    user.present?
+  # To ensure that private topics are only visible to signed-in users
+  def show?
+    record.public? || user.present?
   end
 
   def create?

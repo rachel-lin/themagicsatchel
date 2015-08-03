@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @texts = @project.texts.includes(:user)
     @image_posts = @project.image_posts.includes(:user)
+    @videos = @project.videos.includes(:user)
 
 
 
