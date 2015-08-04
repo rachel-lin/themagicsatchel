@@ -39,6 +39,8 @@ gem 'will_paginate', '~> 3.0.5'
 # Links
 
 gem 'auto_html'
+
+gem 'non-stupid-digest-assets'
   
 
 # Use ActiveModel has_secure_password
